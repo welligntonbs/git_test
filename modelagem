@@ -1,0 +1,33 @@
+```mermaid
+erDiagram
+    S_GUIA ||--o{ GUIA_PARAMETRO : relaciona
+    PARAMETRO ||--o{ GUIA_PARAMETRO : relaciona
+
+    S_GUIA {
+        INTEGER CO_GUIA PK
+        VARCHAR DS_GUIA
+        VARCHAR DS_CHAVE
+        VARCHAR DS_EDITAL
+        VARCHAR DS_OBJETO
+        VARCHAR TP_GUIA
+        VARCHAR ST_STATUS_GUIA
+        TIMESTAMP CREATED_AT
+        TIMESTAMP UPDATED_AT
+        TIMESTAMP DELETED_AT
+        INTEGER CO_GUIA_COR FK
+        INTEGER CO_GUIA_LOGO FK
+        INTEGER CO_GUIA_PUBLICACAO FK
+    }
+
+    PARAMETRO {
+        INTEGER id PK
+        VARCHAR codigo
+        VARCHAR nome
+        VARCHAR descricao
+    }
+
+    GUIA_PARAMETRO {
+        INTEGER id_guia FK
+        INTEGER id_parametro FK
+        JSONB configuracao
+    }
